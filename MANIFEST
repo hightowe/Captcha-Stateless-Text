@@ -1,8 +1,0 @@
-MANIFEST
-Changes
-Makefile.PL
-META.yml
-README.md
-README.txt
-lib/Captcha/Stateless/.Text.pm.swp
-lib/Captcha/Stateless/Text.pm

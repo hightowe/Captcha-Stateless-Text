@@ -35,8 +35,8 @@ DIRS="./lib ./t"
 echo "$FILES" | xargs -n 1 > ./MANIFEST
 find ./lib -type f | sed 's%^./%%' >> ./MANIFEST
 
-grep -E --color=always '^.+[.]swp' ./MANIFEST
-if [ $? ]; then
+grep -E --color=always '^.+[.]swp$' ./MANIFEST
+if [ $? == 0 ]; then
   echo -e " ** WARNING: grep found *.swp files in ./MANIFEST\n"
 fi
 
@@ -62,4 +62,7 @@ rm -f "$ZIP_NAME"
 zip -9r "$ZIP_NAME" ./"$PM_DIR_NAME"
 
 rm -rf ./"$PM_DIR_NAME"
+
+# We leave README.md because it provides the README on github
+rm ./README.txt ./MANIFEST
 
