@@ -23,6 +23,12 @@ if [ "$VER_FROM_PM" != "$VER_FROM_META" ]; then
   exit -1
 fi
 
+grep -q -E "^Version $VER_FROM_PM" Changes
+if [ $? != 0 ]; then
+  echo "'Version $VER_FROM_PM' missing from Changes"
+  exit -1
+fi
+
 rm -f ./README.md ./README.txt
 ./README_make.sh "$PM_FILE"
 
